@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yangtzeu.official.nes" >
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <application>
+        <activity
+            android:name="com.imagine.NesGameActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.yangtzeu.nes"
+            android:process=":NesService">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\.nes" />
+                <data android:pathPattern=".*\.fds" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
