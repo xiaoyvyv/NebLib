@@ -429,13 +429,15 @@ public class NesGameActivity extends NativeActivity implements OnAudioFocusChang
      * 创建游戏相关的通知
      */
     public void addNotification(String str, String str2, String str3) {
-        if (str.contains("NES.emu was suspended"))
+        if (str.contains("NES.emu was suspended")) {
             str = str.replace("NES.emu was suspended", "游戏已暂停");
+        }
         str = "新长大助手：" + str;
-        if (StringUtils.isEmpty(str3))
+        if (StringUtils.isEmpty(str3)) {
             str3 = "点击回到游戏界面";
-        else
+        } else {
             str3 = "游戏名称：" + str3;
+        }
 
 
         final String finalStr = str3;
